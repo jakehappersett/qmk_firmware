@@ -14,11 +14,6 @@ extern keymap_config_t keymap_config;
 #define _NUM 4
 #define _FUNC 5
 
-// Macro name shortcuts
-#define QWERTY M(_QW)
-#define DVORAK M(_DV)
-#define COLEMAK M(_CM)
-
 // Curly braces have their own keys. These are defined to make them not mess up
 // the grid in layer 2.
 #define L_CURBR LSFT(KC_LBRC)
@@ -39,20 +34,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_LCTL, MO(_NUM), KC_LALT,                   KC_ENT,  KC_SPC,                    KC_RGUI, KC_ESC,  TG(_FUNC)
   ),
 /*!end*/
+//added sensible vim controls
 /*!doc: Navigation*/
   [_NAV] = LAYOUT( /* LAYER 1 */
-    KC_GRV,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR,  KC_ASTR, KC_LPRN,  KC_RPRN, KC_DEL,
-    _______, KC_BSLS, KC_QUOT, KC_MINS, KC_EQL,  _______, KC_LEFT, KC_DOWN,  KC_UP,   KC_RIGHT, KC_UNDS, KC_F5,
-    _______, KC_ESC,  _______, KC_PSCR, _______, _______, _______, L_CURBR,  R_CURBR, KC_LBRC,  KC_RBRC, KC_RSFT,
+    KC_GRV,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR,  KC_ASTR, KC_LPRN,  KC_RPRN,   KC_DEL,
+    _______, KC_BSLS, KC_QUOT, KC_MINS, KC_EQL,  _______, KC_LEFT, KC_DOWN,  KC_UP,   KC_RIGHT, KC_UNDS,   KC_F5,
+    _______, KC_ESC,  _______, KC_PSCR, L_CURBR, R_CURBR, KC_LBRC, KC_RBRC,  KC_HOME, KC_END,   KC_INSERT, KC_RSFT,
     _______, KC_LGUI, _______,                   _______, _______,                    _______, _______, _______
   ),
 /*!end*/
 /*!doc: Numbers*/
   [_NUM] = LAYOUT( /* LAYER 2 */
-    KC_0,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5 ,   KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
-    KC_ESC,  KC_PIPE, KC_DQUO, KC_UNDS, KC_PLUS, L_CURBR, R_CURBR, KC_4,    KC_5,    KC_6,    KC_VOLU, KC_ENT,
-    _______, _______, _______, _______, _______, _______, KC_0,    KC_1,    KC_2,    KC_3,    KC_VOLD, _______,
-    _______, _______, _______,                   _______, _______,                   _______, _______, _______
+    S(KC_GRV), KC_1,    KC_2,    KC_3,    KC_4,    KC_5 ,   KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
+    KC_ESC,    KC_PIPE, KC_DQUO, KC_UNDS, KC_PLUS, L_CURBR, R_CURBR, KC_4,    KC_5,    KC_6,    KC_VOLU, KC_ENT,
+    _______,   _______, _______, _______, _______, _______, KC_0,    KC_1,    KC_2,    KC_3,    KC_VOLD, _______,
+    _______,   _______, _______,                   _______, _______,                   _______, _______, _______
   ),
 /*!end*/
 /*!doc: Functions*/
@@ -69,6 +65,8 @@ const uint16_t PROGMEM fn_actions[] = {
 
 };
 
+
+//keeping these around for reference
 void persistent_default_layer_set(uint16_t default_layer) {
   eeconfig_update_default_layer(default_layer);
   default_layer_set(default_layer);
