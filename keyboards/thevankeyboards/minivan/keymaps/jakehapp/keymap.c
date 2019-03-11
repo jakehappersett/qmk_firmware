@@ -93,4 +93,17 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
       }
     return MACRO_NONE;
 };
+# action_get_macro is deprecated, use process_record_user instead
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record, uint8_t usb_led) 
+{
+	if (IS_LED_ON(usb_led, US_LED_NUM_LOCK))
+	{
+		return 0;
+	
+	else 
+	{
+		return 1; 
+	}
+};
 
