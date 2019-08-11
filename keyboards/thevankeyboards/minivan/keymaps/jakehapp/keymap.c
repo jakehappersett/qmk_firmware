@@ -45,10 +45,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*!end*/
 /*!doc: Numbers*/
   [_NUM] = LAYOUT( /* LAYER 2 */
-    S(KC_GRV), KC_1,    KC_2,    KC_3,    KC_4,    KC_5 ,   KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
-    KC_ESC,    KC_PIPE, KC_DQUO, KC_UNDS, KC_PLUS, L_CURBR, R_CURBR, KC_4,    KC_5,    KC_6,    KC_VOLU, KC_ENT,
-    _______,   _______, _______, _______, _______, _______, KC_0,    KC_1,    KC_2,    KC_3,    KC_VOLD, _______,
-    _______,   _______, _______,                   _______, _______,                   _______, _______, _______
+    KC_TILD,   KC_1,    KC_2,    KC_3,    KC_4,    KC_5 ,   KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
+    KC_ESC,    KC_PIPE, KC_DQUO, KC_UNDS, KC_PLUS, L_CURBR, R_CURBR, KC_4,    KC_5,    KC_6,    _______, KC_ENT,
+    _______,   _______, _______, _______, _______, _______, KC_0,    KC_1,    KC_2,    KC_3,    _______, _______,
+    _______,   _______, _______,                   _______, _______,                   KC_VOLU, KC_VOLD, _______
   ),
 /*!end*/
 /*!doc: Functions*/
@@ -61,9 +61,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*!end*/
 };
 
-const uint16_t PROGMEM fn_actions[] = {
-
-};
 
 
 //keeping these around for reference
@@ -94,16 +91,4 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
     return MACRO_NONE;
 };
 # action_get_macro is deprecated, use process_record_user instead
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record, uint8_t usb_led) 
-{
-	if (IS_LED_ON(usb_led, US_LED_NUM_LOCK))
-	{
-		return 0;
-	
-	else 
-	{
-		return 1; 
-	}
-};
 
