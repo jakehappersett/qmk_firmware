@@ -36,30 +36,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LEFT, KC_DOWN, KC_RGHT
     ),
     /*
-        | RESET          | N/A  | Media Stop |
-        | Held: Layer 2  | Home | RGB Mode   |
-        | Media Previous | End  | Media Next |
+        |                |      | Knob 2: Page Dn/Up |
+        | RESET          | N/A  | Media Stop         |
+        | Toggle to Norm | Home | RGB Mode           |
+        | Media Previous | End  | Media Next         |
      */
     [_PAGE] = LAYOUT(
-        RESET  , BL_STEP, KC_STOP,
+        RESET  , BL_STEP, KC_PGDN,
         NORM   , KC_HOME, RGB_MOD,
         KC_MPRV, KC_END , KC_MNXT
     ),
 };
 
-layer_state_t layer_state_set_user(layer_state_t state) {
-    switch (get_highest_layer(state)) {
-        case _PAGE:
-            //set the rgb 
-            //rgblight_setrgb (0xFF,  0x00, 0x00);
-            break;
-        default: 
-            //set the rgb 
-            //rgblight_setrgb (0x00,  0xFF, 0xFF);
-            break;
-    }
-  return state;
-}
+// layer_state_t layer_state_set_user(layer_state_t state) {
+//     switch (get_highest_layer(state)) {
+//         case _PAGE:
+//             //set the rgb 
+//             //rgblight_setrgb (0xFF,  0x00, 0x00);
+//             break;
+//         default: 
+//             //set the rgb 
+//             //rgblight_setrgb (0x00,  0xFF, 0xFF);
+//             break;
+//     }
+//   return state;
+// }
 
 
 void encoder_update_user(uint8_t index, bool clockwise) {
@@ -67,10 +68,10 @@ void encoder_update_user(uint8_t index, bool clockwise) {
         switch(get_highest_layer(layer_state)) {
             case _PAGE:
                 if (clockwise) {
-                    tap_code(KC_PGUP);
+                    tap_code(KC_WH_U);
                     break;
                 } else {
-                    tap_code(KC_PGDN);
+                    tap_code(KC_WH_D);
                     break;
                 }
             default: 
