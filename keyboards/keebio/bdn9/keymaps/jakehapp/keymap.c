@@ -48,19 +48,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 };
 
-// layer_state_t layer_state_set_user(layer_state_t state) {
-//     switch (get_highest_layer(state)) {
-//         case _PAGE:
-//             //set the rgb 
-//             //rgblight_setrgb (0xFF,  0x00, 0x00);
-//             break;
-//         default: 
-//             //set the rgb 
-//             //rgblight_setrgb (0x00,  0xFF, 0xFF);
-//             break;
-//     }
-//   return state;
-// }
+layer_state_t layer_state_set_user(layer_state_t state) {
+    switch (get_highest_layer(state)) {
+        case _PAGE:
+            //set the rgb 
+            rgblight_setrgb (0x00,  0x80, 0x75);
+            break;
+        default: 
+            //set the rgb 
+            rgblight_setrgb (0x73,  0x00, 0xFF);
+            break;
+    }
+  return state;
+}
 
 
 void encoder_update_user(uint8_t index, bool clockwise) {
