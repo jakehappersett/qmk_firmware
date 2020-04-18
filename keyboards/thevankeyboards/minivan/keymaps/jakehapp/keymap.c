@@ -64,31 +64,30 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 //keeping these around for reference
-void persistent_default_layer_set(uint16_t default_layer) {
-  eeconfig_update_default_layer(default_layer);
-  default_layer_set(default_layer);
-}
-
-const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
-{
-      switch(id) {
-        case _DV:
-          if (record->event.pressed) {
-            persistent_default_layer_set(1UL<<_DV);
-          }
-          break;
-        case _QW:
-          if (record->event.pressed) {
-            persistent_default_layer_set(1UL<<_QW);
-          }
-          break;
-        case _CM:
-          if (record->event.pressed) {
-            persistent_default_layer_set(1UL<<_CM);
-          }
-          break;
-      }
-    return MACRO_NONE;
-};
-# action_get_macro is deprecated, use process_record_user instead
-
+//void persistent_default_layer_set(uint16_t default_layer) {
+//  eeconfig_update_default_layer(default_layer);
+//  default_layer_set(default_layer);
+//}
+//
+//
+//const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
+//{
+//      switch(id) {
+//        case _DV:
+//          if (record->event.pressed) {
+//            persistent_default_layer_set(1UL<<_DV);
+//          }
+//          break;
+//        case _QW:
+//          if (record->event.pressed) {
+//            persistent_default_layer_set(1UL<<_QW);
+//          }
+//          break;
+//        case _CM:
+//          if (record->event.pressed) {
+//            persistent_default_layer_set(1UL<<_CM);
+//          }
+//          break;
+//      }
+//    return MACRO_NONE;
+//};
