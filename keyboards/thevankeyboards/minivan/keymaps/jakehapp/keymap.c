@@ -8,11 +8,9 @@ extern keymap_config_t keymap_config;
 // entirely and just use numbers.
 
 #define _QW 0
-#define _DV 1
-#define _CM 2
-#define _NAV 3
-#define _NUM 4
-#define _FUNC 5
+#define _NAV 1
+#define _NUM 2
+#define _FUNC 3
 
 // Curly braces have their own keys. These are defined to make them not mess up
 // the grid in layer 2.
