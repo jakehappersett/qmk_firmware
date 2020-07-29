@@ -37,7 +37,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QW] = LAYOUT_ansi_split_space( /* Qwerty */
     KC_TAB,  KC_Q,     KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
     L_ESC,   KC_A,     KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_QUOT,
-    KC_LSFT, KC_Z,     KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  LT(_NAV,KC_SLASH), 
+    KC_LSFT, KC_Z,     KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  LT(_NUM,KC_SLASH), 
     KC_LCTL, MO(_NUM), KC_LALT,   LCTL_T(KC_ENT), COLO,    KC_SPC,                    KC_RGUI, KC_ESC,  TG(_FUNC)
     ),
   [_NAV] = LAYOUT_ansi_split_space( /* LAYER 1 */
