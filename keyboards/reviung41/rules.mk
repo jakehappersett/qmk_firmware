@@ -9,12 +9,12 @@ MCU = atmega32u4
 #   QMK DFU      qmk-dfu
 #   ATmega32A    bootloadHID
 #   ATmega328P   USBasp
-BOOTLOADER = caterina
+BOOTLOADER = atmel-dfu
 
 # Build Options
 #   change yes to no to disable
 #
-BOOTMAGIC_ENABLE = no       # Virtual DIP switch configuration
+BOOTMAGIC_ENABLE = lite       # Virtual DIP switch configuration
 MOUSEKEY_ENABLE = no        # Mouse keys
 EXTRAKEY_ENABLE = yes       # Audio control and System control
 CONSOLE_ENABLE = yes        # Console for debug
