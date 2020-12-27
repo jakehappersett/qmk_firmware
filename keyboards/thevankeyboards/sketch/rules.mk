@@ -24,5 +24,7 @@ BLUETOOTH_ENABLE = no
 SRC += matrix.c
 
 BOOTLOADER = atmel-dfu
-BOOTMAGIC_ENABLE = yes      # Virtual DIP switch configuration
+BOOTMAGIC_ENABLE = lite      # Virtual DIP switch configuration
 SLEEP_LED_ENABLE = yes       # Breathing sleep LED during USB suspend
+
+CONSOLE_ENABLE = yes

@@ -1,4 +1,5 @@
 #include "sketch.h"
+#include "print.h"
 
 #define L_ESC LT(_NAV, KC_ESC)
 #define _______ KC_TRNS
@@ -12,24 +13,6 @@ enum layer_names {
 
 enum custom_keycodes {
   M_IME = SAFE_RANGE
-};
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  if (record->event.pressed) {
-    switch(keycode) {
-      case M_IME:
-        SEND_STRING(SS_DOWN(X_LSHIFT)SS_DOWN(X_LALT));
-        return false;
-    }
-  }
-  else {
-    switch(keycode) {
-      case M_IME:
-        SEND_STRING(SS_UP(X_LSHIFT)SS_UP(X_LALT));
-        return false;
-    }
-  }
-  return true;
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -54,37 +37,48 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     RESET,   _______, _______, _______, _______, _______, _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   _______,
     KC_ESC,  _______, _______, _______, _______, _______, _______, KC_F5,   KC_F6,   KC_F7,   KC_F8,   _______,
     KC_LSFT, _______, _______, _______, _______, _______, _______, KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______,
-    CG_NORM, KC_LSFT, CG_SWAP,          _______,    _______,  _______,              _______, _______, _______, _______
+    CG_NORM, KC_LSFT, _______, CG_SWAP,           _______,  _______,              _______, _______, _______, _______
     )
 };
 
-void process_indicator_update(layer_state_t state, uint8_t usb_led) {
-  for (int i = 0; i < 10; i++) {
-    setrgb(0, 0, 0, (LED_TYPE *)&led[i]);
-  }
-  setrgb(200, 23, 23, (LED_TYPE *)&led[0]);
-  setrgb(200, 23, 23, (LED_TYPE *)&led[1]);
-  setrgb(200, 23, 23, (LED_TYPE *)&led[2]);
-  setrgb(200, 23, 23, (LED_TYPE *)&led[3]);
-  setrgb(200, 23, 23, (LED_TYPE *)&led[4]);
-  setrgb(200, 23, 23, (LED_TYPE *)&led[5]);
-  setrgb(200, 23, 23, (LED_TYPE *)&led[6]);
-  setrgb(200, 23, 23, (LED_TYPE *)&led[7]);
-  setrgb(200, 23, 23, (LED_TYPE *)&led[8]);
-  setrgb(200, 23, 23, (LED_TYPE *)&led[9]);
-
-  rgblight_set();
-};
-
-void keyboard_post_init_user(void) {
-  process_indicator_update(layer_state, host_keyboard_leds());
-};
-
-void led_set_user(uint8_t usb_led) {
-  process_indicator_update(layer_state, host_keyboard_leds());
+void keyboard_post_init_keymap(void) {
+  // debug_enable=true;
+  // debug_matrix=true;
+  layer_state_set_user(layer_state);
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-  process_indicator_update(state, host_keyboard_leds());
-    return state;
-};
+  switch (get_highest_layer(state)) {
+    case _QW:
+        rgblight_mode(RGBLIGHT_MODE_TWINKLE);
+        rgblight_sethsv_at(HSV_TURQUOISE, 0);
+        rgblight_sethsv_at(HSV_TEAL, 1);
+        rgblight_sethsv_at(HSV_CYAN, 2);
+        rgblight_sethsv_at(HSV_CYAN, 3);
+        rgblight_sethsv_at(HSV_AZURE, 4);
+        rgblight_sethsv_at(HSV_AZURE, 5);
+        rgblight_sethsv_at(HSV_PURPLE, 6);
+        rgblight_sethsv_at(HSV_MAGENTA, 7);
+        rgblight_sethsv_at(HSV_MAGENTA, 8);
+        rgblight_sethsv_at(HSV_PINK, 9);
+        break;
+    case _NAV:
+        rgblight_sethsv (HSV_PURPLE);
+        rgblight_mode(RGBLIGHT_MODE_KNIGHT);
+        break;
+    case _NUM:
+        rgblight_sethsv (HSV_TEAL);
+        rgblight_mode(RGBLIGHT_MODE_KNIGHT);
+        break;
+    case _FUNC:
+        rgblight_sethsv (HSV_CORAL);
+        rgblight_mode(RGBLIGHT_MODE_SNAKE);
+        break;
+    default: 
+        rgblight_sethsv (HSV_MAGENTA);
+        break;
+    }
+  return state;
+}
+
+
