@@ -24,7 +24,8 @@
 #define DEVICE_VER      0x0002
 #define MANUFACTURER    MsMustard
 #define PRODUCT         Terrazzo
-
+#define COMBO_COUNT 2
+#define DEBOUNCE 5
 /* key matrix size */
 
 // SWAP FOR PRO MICRO

@@ -93,7 +93,8 @@ Terrazzo has 4 positions for encoders in the left-hand column. Up to 3 may be us
 The default keymaps are setup for one encoder. Encoders can change behavior based on the current layer. Here, on the "NAV" layer, the encoder changes volume instead of scrolling.
 
 ```c
-void encoder_update_user(uint8_t index, bool clockwise) {
+void encoder_update_user(uint8_t index, bool cloc
+pkwise) {
     terrazzo_scroll_pixel(clockwise);
     switch(get_highest_layer(layer_state)) {
       case _NAV:
