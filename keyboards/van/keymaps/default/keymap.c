@@ -18,6 +18,7 @@
 // Fillers to make layering more clear
 #define _______ KC_TRNS
 #define L_ESC LT(_NAV, KC_ESC)
+#define F_ENT LT(_FUNC, KC_ENT)
 #define R_ENT LT(_NAV, KC_QUOTE)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -27,7 +28,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,  KC_Q,     KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
     L_ESC,   KC_A,     KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, R_ENT,
     KC_LSFT, KC_Z,     KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, MO(_NUM),
-    KC_LCTL, MO(_NUM), MO(_NUM), KC_LALT,  LCTL_T(KC_ENT),  KC_SPC,            _______,  KC_RGUI, KC_ESC,  TG(_FUNC)
+    KC_LCTL, MO(_NUM), MO(_NUM), KC_LALT,  LCTL_T(KC_ENT),  KC_SPC,            _______,  KC_RGUI, KC_ESC,  F_ENT
   ),
 /*!end*/
 //added sensible vim controls

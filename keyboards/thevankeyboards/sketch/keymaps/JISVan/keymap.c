@@ -3,6 +3,7 @@
 
 #define L_ESC LT(_NAV, KC_ESC)
 #define Q_NUM LT(_NUM, KC_QUOT)
+#define F_ENT LT(_FUNC, KC_ENT)
 #define _______ KC_TRNS
 
 enum layer_names {
@@ -21,12 +22,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,   KC_Q,       KC_W,   KC_E,   KC_R,   KC_T,   KC_Y,   KC_U,   KC_I,     KC_O,     KC_P,     KC_BSPC, 
     L_ESC,    KC_A,       KC_S,   KC_D,   KC_F,   KC_G,   KC_H,   KC_J,   KC_K,     KC_L,     KC_SCLN,  KC_NO,
     KC_LSFT,  KC_Z,       KC_X,   KC_C,   KC_V,   KC_B,   KC_N,   KC_M,   KC_COMM,  KC_DOT,   KC_SLSH,  Q_NUM, 
-    KC_LCTL,  MO(_NUM),   KC_NO,  KC_LALT, LCTL_T(KC_SPC),     KC_NO,    KC_RGUI,  KC_RSFT,  KC_NO,    TG(_FUNC)),
+    KC_LCTL,  MO(_NUM),   KC_NO,  KC_LALT, KC_SPC,     KC_NO,    KC_RGUI,  _______,  _______,    F_ENT ),
   [_NAV] = LAYOUT(
     KC_GRV,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR,  KC_ASTR, KC_LPRN,  KC_RPRN,   KC_DEL,
-    _______, KC_BSLS, KC_QUOT, KC_MINS, KC_EQL,  _______, KC_LEFT, KC_DOWN,  KC_UP,   KC_RIGHT, KC_UNDS,   KC_F5,
-    _______, KC_ESC,  _______, KC_PSCR, KC_LCBR, KC_RCBR, KC_LBRC, KC_RBRC,  KC_HOME, KC_END,   KC_INSERT, KC_RSFT,
-    _______, _______, _______, _______,          KC_ENT, _______,         _______, _______, _______, _______
+    _______, KC_BSLS, KC_ENT, KC_MINS, KC_EQL,  _______, KC_LEFT, KC_DOWN,  KC_UP,   KC_RIGHT, KC_UNDS,   KC_F5,
+    _______, KC_ESC,  _______, KC_PSCR, KC_LCBR, KC_RCBR, KC_LBRC, KC_RBRC,  KC_HOME, KC_END,   KC_INSERT, KC_F5,
+    _______, _______, _______, _______,          _______, _______,         _______, _______, _______, _______
     ),
   [_NUM] = LAYOUT(
     KC_TILD,   KC_1,    KC_2,    KC_3,    KC_4,    KC_5 ,   KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
@@ -81,5 +82,3 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     }
   return state;
 }
-
-
