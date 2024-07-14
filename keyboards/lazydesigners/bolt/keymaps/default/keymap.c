@@ -19,6 +19,8 @@
 #define R_ENT LT(_NAV, KC_QUOTE)
 #define L_CURBR LSFT(KC_LBRC)
 #define R_CURBR LSFT(KC_RBRC)
+#define F_ENT LT(_FUNC, KC_ENT)
+#define _______ KC_TRNS
 
 void set_bolt_colors(void);
 
@@ -34,7 +36,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                KC_TAB,   KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                 KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
                L_ESC,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                 KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOTE,
                KC_LSFT,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,        KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, MO(_NUM),
-               KC_LCTL,  MO(_NUM),           KC_LALT, LCTL_T(KC_ENT),     KC_SPC,  KC_RGUI,                   KC_RCTL, KC_ESC,  TG(_FUNC)
+               KC_LCTL,  MO(_NUM),           KC_LALT, LCTL_T(KC_ENT),     KC_SPC,  KC_RGUI,                   KC_RCTL, KC_ESC,  F_ENT
              ),
     [_NAV] = LAYOUT(
                 KC_GRV,   KC_EXLM, KC_AT,    KC_HASH, KC_DLR,  KC_PERC,              KC_CIRC, KC_AMPR,  KC_ASTR, KC_LPRN,  KC_RPRN,   KC_DEL,
@@ -49,11 +51,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 KC_TRNS,      KC_TRNS,                     KC_TRNS,   KC_TRNS,      KC_TRNS,    KC_TRNS,                     KC_TRNS,   KC_TRNS,   KC_TRNS
              ),
     [_FUNC] = LAYOUT(
-                RESET,    KC_NO,    KC_NO, KC_NO, KC_NO,    KC_NO,                    KC_NO, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_NO,
-                RGB_TOG,   KC_NO,    KC_NO, KC_NO, KC_NO,    KC_NO,                    KC_NO, KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_NO,
-                KC_NO,    KC_NO,    KC_NO, KC_NO, KC_NO,    KC_NO,            KC_NO,  KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
-                CG_NORM,  KC_NO,                  CG_SWAP,  KC_NO,          KC_NO,  KC_NO,                   KC_NO,   KC_NO,   KC_TRNS
-             )
+    KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_6,    KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,
+    RESET,  _______, _______, _______, _______, _______, _______, _______,   _______,   _______,   _______,   KC_VOLU,
+    RGB_TOG, _______, _______, _______, _______, _______, _______, _______,   _______,  _______,  KC_MPLY,  KC_VOLD,
+    CG_NORM, _______, CG_SWAP, _______,           _______,  _______,              _______, _______, _______, _______)
+             
 };
 
 // RGB code 
